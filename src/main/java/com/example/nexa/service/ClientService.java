@@ -27,4 +27,9 @@ public class ClientService {
         Client client =clientRepo.getClientByClientEmailAndPassword(email,password);
         return modelMapper.map(client,ClientDTO.class);
     }
+
+    public ClientDTO saveClient(ClientDTO clientDTO) {
+        clientRepo.save(modelMapper.map(clientDTO, Client.class));
+        return clientDTO;
+    }
 }

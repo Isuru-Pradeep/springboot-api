@@ -22,4 +22,10 @@ public class ClientController {
         System.out.println("Client Email :"+ clientEmail +"Password :" +password);
         return clientService.getClientByClientEmailAndPassword(clientEmail,password);
     }
+
+    @PostMapping("/saveClient")
+    public ClientDTO saveClient(@RequestBody ClientDTO clientDTO) {
+        return clientService.saveClient(clientDTO);
+
+    }
 }
