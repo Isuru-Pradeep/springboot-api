@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 public interface ClientRepo extends JpaRepository<Client,String> {
+    Client findByEmail(String email);
 //    @Query(value = "SELECT * FROM Client WHERE ID = ?1",nativeQuery = true)
 //    Client getClientByEmail(String userId);
 //

@@ -18,4 +18,12 @@ public class Client {
     private String bDate;
     private String user_group;
     private String password;
+
+    public String getEmail() {
+        return this.email;
+    }
+
+    public void setPassword(String newPassword) {
+        this.password =newPassword;
+    }
 }
