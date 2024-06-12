@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.security.SecureRandom;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 
 @RestController
 @RequestMapping("/api/v1/auth")
@@ -34,13 +35,31 @@ public class AuthController {
         }
 
         String newPassword = generateRandomPassword();
-        client.setPassword(newPassword); // Ensure to encode the password using a password encoder
+        client.setPassword(newPassword);
         clientRepo.save(client);
         String dateAndTime = timeAndDate();
 
-        emailService.sendEmail(client.getEmail(), "New Password", "Your new password is: " + newPassword+"\nTime stamp : "+dateAndTime);
+        emailService.sendEmail(client.getEmail(), "NEXA Password rest code", "password reset codde is: " + newPassword+"\nTime stamp : "+dateAndTime);
 
         return ResponseEntity.ok("Email sent");
+    }
+
+    @PostMapping("/reset-password")
+    public ResponseEntity<String> resetPassword(@RequestParam String email,@RequestParam String code,@RequestParam String password) {
+        Client client = clientRepo.findByEmail(email);
+        System.out.println(email);
+        System.out.println(code);
+        System.out.println(password);
+        System.out.println(client.getPassword());
+        if (!Objects.equals(client.getPassword(), code)) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Emailed code and typed code is not match");
+        }
+        else {
+            client.setPassword(password);
+            clientRepo.save(client);
+            return ResponseEntity.ok("Password reset");
+
+        }
     }
 
     private String generateRandomPassword() {
