@@ -4,9 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.IdClass;
+import javax.persistence.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -24,8 +22,33 @@ public class InteriorImage {
     private String interior_type;
     private String image_url;
 
-//    @OneToOne
-//    @JoinColumn(name = "email", referencedColumnName = "email")
-//    private Client client;
+    @ManyToOne
+    @MapsId("email")
+    @JoinColumn(name = "email")
+    private Client client;
 
+    // Getters
+    public String getAugmentedImage() {
+        return augmented_image;
+    }
+
+    public String getTexture() {
+        return texture;
+    }
+
+    public float getComplexityScore() {
+        return complexity_score;
+    }
+
+    public String getInteriorType() {
+        return interior_type;
+    }
+
+    public String getImageUrl(){
+        return image_url;
+    }
+
+    public int getId() {
+        return id;
+    }
 }

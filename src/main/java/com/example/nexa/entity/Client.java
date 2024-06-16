@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.Set;
 
 @Entity
 @NoArgsConstructor
@@ -18,6 +20,8 @@ public class Client {
     private String bDate;
     private String user_group;
     private String password;
+    @OneToMany(mappedBy = "client")
+    private Set<InteriorImage> interiorImages;
 
     public String getEmail() {
         return this.email;

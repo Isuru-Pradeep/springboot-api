@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -13,9 +14,13 @@ import javax.persistence.Id;
 @Data
 public class ColorPallet {
     @Id
-    private int color_pallet_id;
+    @Column(name = "color_pallet_id")
+    private int imageColorPalletId;
     private String feedback;
     private String email;
     private String colors;
 
+    public String getColorCode() {
+        return colors;
+    }
 }
