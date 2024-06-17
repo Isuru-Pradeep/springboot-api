@@ -11,21 +11,29 @@ import java.util.List;
 @RequestMapping(value = "api/v1/client")
 @CrossOrigin
 public class ClientController {
+
     @Autowired
     private ClientService clientService;
+
     @GetMapping("/getClients")
-    public List<ClientDTO> getClients(){
+    public List<ClientDTO> getClients() {
         return clientService.getAllClients();
+
     }
+
     @GetMapping("/getClientByClientEmailAndPassword/{clientEmail}/{password}")
-    public ClientDTO getClientByClientEmailAndPassword(@PathVariable String clientEmail , @PathVariable String password){
-        System.out.println("Client Email :"+ clientEmail +"Password :" +password);
-        return clientService.getClientByClientEmailAndPassword(clientEmail,password);
+    public ClientDTO getClientByClientEmailAndPassword(@PathVariable String clientEmail, @PathVariable String password) {
+        System.out.println("Client Email :" + clientEmail + " Password :" + password);
+        return clientService.getClientByClientEmailAndPassword(clientEmail, password);
     }
 
     @PostMapping("/saveClient")
     public ClientDTO saveClient(@RequestBody ClientDTO clientDTO) {
         return clientService.saveClient(clientDTO);
+    }
 
+    @PostMapping("/check-email")
+    public boolean checkEmailExists(@RequestBody String email) {
+        return clientService.checkEmailExists(email);
     }
 }

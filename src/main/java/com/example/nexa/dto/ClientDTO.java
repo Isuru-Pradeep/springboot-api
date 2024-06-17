@@ -9,8 +9,9 @@ import lombok.NoArgsConstructor;
 @Data
 public class ClientDTO {
     private String email;
+    private String name;
     private String gender;
-    private String bDate;
+    private String b_date;
     private String user_group;
     private String password;
 }

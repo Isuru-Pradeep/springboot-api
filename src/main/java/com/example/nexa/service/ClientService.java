@@ -14,22 +14,31 @@ import java.util.List;
 @Service
 @Transactional
 public class ClientService {
+
     @Autowired
     private ClientRepo clientRepo;
+
     @Autowired
     private ModelMapper modelMapper;
 
-    public List<ClientDTO> getAllClients(){
-        List<Client>clientList = clientRepo.findAll();
-        return modelMapper.map(clientList,new TypeToken<List<ClientDTO>>(){}.getType());
+    public List<ClientDTO> getAllClients() {
+        List<Client> clientList = clientRepo.findAll();
+        return modelMapper.map(clientList, new TypeToken<List<ClientDTO>>() {}.getType());
     }
-    public ClientDTO getClientByClientEmailAndPassword(String email,String password){
-        Client client =clientRepo.getClientByClientEmailAndPassword(email,password);
-        return modelMapper.map(client,ClientDTO.class);
+
+    public ClientDTO getClientByClientEmailAndPassword(String email, String password) {
+        Client client = clientRepo.getClientByClientEmailAndPassword(email, password);
+        return modelMapper.map(client, ClientDTO.class);
     }
 
     public ClientDTO saveClient(ClientDTO clientDTO) {
-        clientRepo.save(modelMapper.map(clientDTO, Client.class));
+        Client client = modelMapper.map(clientDTO, Client.class);
+        client.setUser_group(null); // Ensure user_group is null
+        clientRepo.save(client);
         return clientDTO;
+    }
+
+    public boolean checkEmailExists(String email) {
+        return clientRepo.existsByEmail(email);
     }
 }

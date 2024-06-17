@@ -16,8 +16,9 @@ import java.util.Set;
 public class Client {
     @Id
     private String email;
+    private String name;
     private String gender;
-    private String bDate;
+    private String b_date;
     private String user_group;
     private String password;
     @OneToMany(mappedBy = "client")
@@ -28,10 +29,22 @@ public class Client {
     }
 
     public void setPassword(String newPassword) {
-        this.password =newPassword;
+        this.password = newPassword;
     }
 
     public String getPassword() {
         return this.password;
+    }
+
+    public void setUser_group(String user_group) {
+        this.user_group = user_group;
+    }
+
+    public String getBDate() {
+        return b_date;
+    }
+
+    public void setBDate(String b_date) {
+        this.b_date = b_date;
     }
 }
