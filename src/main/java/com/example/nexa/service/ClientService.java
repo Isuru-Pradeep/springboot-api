@@ -41,4 +41,6 @@ public class ClientService {
     public boolean checkEmailExists(String email) {
         return clientRepo.existsByEmail(email);
     }
+
+
 }

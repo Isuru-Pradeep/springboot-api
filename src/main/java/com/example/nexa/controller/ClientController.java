@@ -32,6 +32,11 @@ public class ClientController {
         return clientService.saveClient(clientDTO);
     }
 
+//    @PostMapping("/check-email")
+//    public boolean checkEmailExists(@RequestBody String email) {
+//        return clientService.checkEmailExists(email);
+//    }
+
     @PostMapping("/check-email")
     public boolean checkEmailExists(@RequestBody String email) {
         return clientService.checkEmailExists(email);

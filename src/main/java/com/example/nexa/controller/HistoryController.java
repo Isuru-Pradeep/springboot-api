@@ -1,13 +1,13 @@
 package com.example.nexa.controller;
 
 import com.example.nexa.dto.HistoryDTO;
+import com.example.nexa.repo.ClientRepo;
+import com.example.nexa.repo.GenerateRepo;
+import com.example.nexa.repo.InteriorImageRepo;
 import com.example.nexa.service.HistoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -16,6 +16,13 @@ import java.util.List;
 public class HistoryController {
     @Autowired
     private HistoryService historyService;
+    @Autowired
+    private ClientRepo clientRepo;
+
+    @Autowired
+    private InteriorImageRepo interiorImageRepo;
+    @Autowired
+    private GenerateRepo generateRepo;
 
     @GetMapping("/{email}")
     public ResponseEntity<List<HistoryDTO>> getHistory(@PathVariable String email) {
@@ -24,5 +31,17 @@ public class HistoryController {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(images);
+    }
+    @DeleteMapping("{email}")
+    public ResponseEntity<Void> clearHistory(@PathVariable String email) {
+        if (clientRepo.existsById(email)) {
+//            interiorImageRepo.deleteAll(interiorImageRepo.findByClientEmail(email));
+//            generateRepo.deleteAll(generateRepo.findByEmail(email));
+//            meh tika comment karala thiyenne avlk tikak thiynwa ee tika hdnkn
+//            eka hadala dannm
+
+            return ResponseEntity.ok().build();
+        }
+        return ResponseEntity.notFound().build();
     }
 }

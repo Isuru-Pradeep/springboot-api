@@ -15,4 +15,7 @@ public interface ClientRepo extends JpaRepository<Client, String> {
 
     @Query(value = "SELECT COUNT(*) > 0 FROM client WHERE email = ?1", nativeQuery = true)
     boolean existsByEmail(String email);
+
+
+
 }
