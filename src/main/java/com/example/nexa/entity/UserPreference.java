@@ -15,9 +15,10 @@ public class UserPreference {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String email; // Added email field
     private String budget;
     private String favoriteColors; // Comma-separated list of hex codes
-    private String  numberOfMembers;
+    private String numberOfMembers;
     private String climate;
     private String lifestyle;
     private String architecturalStyle;
@@ -37,6 +38,14 @@ public class UserPreference {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getBudget() {

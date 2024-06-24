@@ -12,12 +12,14 @@ import org.springframework.web.bind.annotation.*;
 public class ColorPalletControler {
 
     @Autowired
-    private ColorPalletService colorPalletService ;
+    private ColorPalletService colorPalletService;
+
     @GetMapping("/getColorPalletById/{id}")
-    public ColorPalletDTO getColorPalletById(@PathVariable String id){
-        System.out.println("Color Pallet  Id :"+ id);
+    public ColorPalletDTO getColorPalletById(@PathVariable String id) {
+        System.out.println("Color Pallet Id :" + id);
         return colorPalletService.getColorPallet(id);
     }
+
     @PostMapping("/saveColorpallet")
     public ColorPalletDTO saveColorPallet(@RequestBody ColorPalletDTO colorPalletDTO) {
         return colorPalletService.saveColorPallet(colorPalletDTO);

@@ -1,24 +1,18 @@
-package com.example.nexa.entity;
+package com.example.nexa.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
-@Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Search {
-
-    @Id
+public class OutputImageDTO {
+    private int id;
     private String email;
     private String complexity;
     private String texture;
-    private String color;
-    private String imgurl;
-
+    private String final_color;
+    private String augmented_image;
 
 }
