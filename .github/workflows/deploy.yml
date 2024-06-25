@@ -23,7 +23,7 @@ jobs:
         with:
           host: ec2-54-162-80-60.compute-1.amazonaws.com
           username: ubuntu
-          key: bimsara.pem
+          key: springboot-api/bimsara.pem
           source: target/nexa-0.0.1-SNAPSHOT.jar
           target: /home/ubuntu/nexa-0.0.1-SNAPSHOT.jar
 
