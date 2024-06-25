@@ -1,9 +1,7 @@
 package com.example.nexa.service;
 
 import com.example.nexa.dto.ColorPalletDTO;
-import com.example.nexa.dto.GenerateDTO;
 import com.example.nexa.entity.ColorPallet;
-import com.example.nexa.entity.Generate;
 import com.example.nexa.repo.ColorPalletRepo;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
