@@ -13,8 +13,6 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v2
 
-     
-
       - name: Build with Maven
         run: mvn clean package
 
@@ -43,6 +41,7 @@ jobs:
           key: ${{ secrets.EC2_KEY }}
           source: ./nexa-0.0.1-SNAPSHOT.jar
           target: /home/ubuntu/nexa-0.0.1-SNAPSHOT.jar
+          debug: true  # Enable debug output
 
       - name: Restart Spring Boot Service
         uses: appleboy/ssh-action@v0.1.1
@@ -53,3 +52,4 @@ jobs:
           script: |
             sudo systemctl daemon-reload
             sudo systemctl restart springboot-app
+          debug: true  # Enable debug output
