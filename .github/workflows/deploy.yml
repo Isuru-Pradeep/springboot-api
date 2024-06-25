@@ -3,7 +3,7 @@ name: Deploy Spring Boot Application
 on:
   push:
     branches:
-      - orgin
+      - main  # Ensure this matches your main branch
 
 jobs:
   build:
