@@ -27,8 +27,8 @@ jobs:
           host: ${{ secrets.EC2_HOST }}
           username: ubuntu
           key: ${{ secrets.EC2_KEY }}
-          source: target/your-spring-boot-app.jar
-          target: /home/ubuntu/your-spring-boot-app.jar
+          source: target/nexa-0.0.1-SNAPSHOT.jar
+          target: /home/ubuntu/nexa-0.0.1-SNAPSHOT.jar
 
       - name: Restart Spring Boot Service
         run: |
