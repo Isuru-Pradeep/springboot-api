@@ -26,7 +26,5 @@ public class Client {
     private String feedbackAnswer2;
     private String feedbackAnswer3;
     private String feedbackAnswer4;
-//    @OneToMany(mappedBy = "client")
-//    private Set<InteriorImage> interiorImages;
 
 }
