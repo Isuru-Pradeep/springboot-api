@@ -2,7 +2,8 @@ package com.example.nexa.entity;
 
 import java.io.Serializable;
 
-public class InteriorKey implements Serializable {
+public class ColorPalletKey implements Serializable {
+    private int imageColorPalletId;
     private String email;
-    private int id;
+
 }

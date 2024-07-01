@@ -13,13 +13,13 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@IdClass(MyKey.class)
+@IdClass(GenerateKey.class)
 public class Generate {
     @Id
     private String email;
     @Id
-    private int id;
+    private int InteriorImageId;
 
     @Id
-    private int color_pallet_id;
+    private int colorPalletId;
 }

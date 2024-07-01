@@ -10,45 +10,23 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Data
 @Entity
-@IdClass(InteriorKey.class)
+@IdClass(InteriorImageKey.class)
 public class InteriorImage {
     @Id
     private String email;
     @Id
-    private int id;
-    private String augmented_image;
+    private int InteriorImageId;
+    private String augmentedImageUrl;
     private String texture;
-    private float complexity_score;
-    private String interior_type;
-    private String image_url;
+    private float complexityScore;
+    private String TimeStamp;
+    private String InteriorImageUrl;
 
-    @ManyToOne
-    @MapsId("email")
-    @JoinColumn(name = "email")
-    private Client client;
+//    @ManyToOne
+//    @MapsId("email")
+//    @JoinColumn(name = "email")
+//    private Client client;
 
-    // Getters
-    public String getAugmentedImage() {
-        return augmented_image;
-    }
 
-    public String getTexture() {
-        return texture;
-    }
 
-    public float getComplexityScore() {
-        return complexity_score;
-    }
-
-    public String getInteriorType() {
-        return interior_type;
-    }
-
-    public String getImageUrl(){
-        return image_url;
-    }
-
-    public int getId() {
-        return id;
-    }
 }

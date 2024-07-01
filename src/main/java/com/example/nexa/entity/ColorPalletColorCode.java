@@ -13,12 +13,12 @@ import javax.persistence.IdClass;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@IdClass(ColorPalletKey.class)
-public class ColorPallet {
-    @Id
-    private int imageColorPalletId;
+@IdClass(ColorPalletColorCodeKey.class)
+public class ColorPalletColorCode {
     @Id
     private String email;
-    private String rating;
+    @Id
+    private int ColorPalletColorId;
+    private String ColorCode;
 
 }
